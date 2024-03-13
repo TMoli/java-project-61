@@ -9,20 +9,21 @@ public class Prime {
         Engine.startEngine();
     }
     public static void logicPrime() {
-        Engine.question = Integer.toString(Engine.number1);
-        if (Engine.number1 == 2) {
+        int number1 = (int) (Math.random() * (100 + 1) + 1);
+        Engine.question = Integer.toString(number1);
+        if (number1 == 2) {
             Engine.result = "yes";
             return;
         }
-        if (Engine.number1 % 2 == 0) {
+        if (number1 % 2 == 0) {
             Engine.result = "no";
             return;
         }
         int count = 0;
-        int lastNumber = Engine.number1 - 2;
+        int lastNumber = number1 - 2;
         int result;
         while (count != 1 & lastNumber > 2) {
-            result = Engine.number1 % lastNumber;
+            result = number1 % lastNumber;
             lastNumber = lastNumber - 2;
             if (result == 0) {
                 count++;

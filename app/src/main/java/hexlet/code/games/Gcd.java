@@ -9,16 +9,18 @@ public class Gcd {
         Engine.startEngine();
     }
     public static void logicGcd() {
-        Engine.question = Engine.number1 + " " + Engine.number2;
+        int number1 = (int) (Math.random() * (100 + 1) + 1);
+        int number2 = (int) (Math.random() * (100 + 1) + 1);
+        Engine.question = number1 + " " + number2;
         int largerNumber;
         int smallerNumber;
         int calculation = 1;
-        if (Engine.number1 > Engine.number2) {
-            largerNumber = Engine.number1;
-            smallerNumber = Engine.number2;
+        if (number1 > number2) {
+            largerNumber = number1;
+            smallerNumber = number2;
         } else {
-            largerNumber = Engine.number2;
-            smallerNumber = Engine.number1;
+            largerNumber = number2;
+            smallerNumber = number1;
         }
         while (calculation != 0) {
             calculation = largerNumber % smallerNumber;

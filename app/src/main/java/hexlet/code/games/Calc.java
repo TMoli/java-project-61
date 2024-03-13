@@ -8,13 +8,15 @@ public class Calc {
         Engine.startEngine();
     }
     public static void logicCalc() {
+        int number1 = (int) (Math.random() * (100 + 1) + 1);
+        int number2 = (int) (Math.random() * (100 + 1) + 1);
         char[] operators = new char[]{'+', '-', '*'};
         char randOperator = operators[(int) (Math.random() * (2 + 1) + 0)];
-        Engine.question = Engine.number1 + " " + randOperator + " " + Engine.number2;
+        Engine.question = number1 + " " + randOperator + " " + number2;
         Engine.result = switch (randOperator) {
-            case '+' -> Integer.toString(Engine.number1 + Engine.number2);
-            case '-' -> Integer.toString(Engine.number1 - Engine.number2);
-            case '*' -> Integer.toString(Engine.number1 * Engine.number2);
+            case '+' -> Integer.toString(number1 + number2);
+            case '-' -> Integer.toString(number1 - number2);
+            case '*' -> Integer.toString(number1 * number2);
             default -> Integer.toString(0);
         };
     }

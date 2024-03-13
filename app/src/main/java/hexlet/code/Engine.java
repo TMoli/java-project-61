@@ -10,8 +10,6 @@ import hexlet.code.games.Prime;
 public class Engine {
     public static String game;
     public static String exercise;
-    public static int number1;
-    public static int number2;
     public static String question = "";
     public static String result = "";
 
@@ -24,8 +22,6 @@ public class Engine {
         System.out.println(exercise);
 
         for (var i = 0; i < 3; i++) {
-            number1 = (int) (Math.random() * (100 + 1) + 1);
-            number2 = (int) (Math.random() * (100 + 1) + 1);
             switch (game) {
                 case "Even" -> Even.logicEven();
                 case "Calc" -> Calc.logicCalc();

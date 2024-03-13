@@ -8,8 +8,9 @@ public class Even {
         Engine.startEngine();
     }
     public static void logicEven() {
-        Engine.question = Integer.toString(Engine.number1);
-        if (Engine.number1 % 2 == 0) {
+        int number1 = (int) (Math.random() * (100 + 1) + 1);
+        Engine.question = Integer.toString(number1);
+        if (number1 % 2 == 0) {
             Engine.result = "yes";
         } else {
             Engine.result = "no";
