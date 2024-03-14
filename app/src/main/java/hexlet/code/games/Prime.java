@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 public class Prime {
     public static void startGame() {
         Engine.game = "Prime";
-        Engine.question = "Answer 'yes' if given number is prime. Otherwise answer 'no'";
+        Engine.question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         Engine.startEngine();
     }
 
