@@ -9,6 +9,7 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 public class App {
     public static void main(String[] args) {
+        System.out.println("Welcome to the Brain Games!");
         StringJoiner gamesList = new StringJoiner("\n");
         gamesList.add("Please enter the game number and press Enter.");
         gamesList.add("1 - Greet");
