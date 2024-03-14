@@ -4,14 +4,15 @@ import hexlet.code.Engine;
 
 public class Gcd {
     public static void startGame() {
-        Engine.exercise = "Find the greatest common divisor of given numbers.";
         Engine.game = "Gcd";
+        Engine.question = "Find the greatest common divisor of given numbers.";
         Engine.startEngine();
     }
-    public static void logicGcd() {
+
+    public static void executeLogic() {
         int number1 = (int) (Math.random() * (100 + 1) + 1);
         int number2 = (int) (Math.random() * (100 + 1) + 1);
-        Engine.question = number1 + " " + number2;
+        Engine.exercise = number1 + " " + number2;
         int largerNumber;
         int smallerNumber;
         int calculation = 1;
@@ -29,6 +30,6 @@ public class Gcd {
                 smallerNumber = calculation;
             }
         }
-        Engine.result = Integer.toString(largerNumber);
+        Engine.exerciseResult = Integer.toString(smallerNumber);
     }
 }

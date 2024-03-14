@@ -4,19 +4,20 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static void startGame() {
-        Engine.exercise = "Answer 'yes' if given number is prime. Otherwise answer 'no'";
         Engine.game = "Prime";
+        Engine.question = "Answer 'yes' if given number is prime. Otherwise answer 'no'";
         Engine.startEngine();
     }
-    public static void logicPrime() {
+
+    public static void executeLogic() {
         int number1 = (int) (Math.random() * (100 + 1) + 1);
-        Engine.question = Integer.toString(number1);
+        Engine.exercise = Integer.toString(number1);
         if (number1 == 2) {
-            Engine.result = "yes";
+            Engine.exerciseResult = "yes";
             return;
         }
         if (number1 % 2 == 0) {
-            Engine.result = "no";
+            Engine.exerciseResult = "no";
             return;
         }
         int count = 0;
@@ -30,9 +31,9 @@ public class Prime {
             }
         }
         if (count == 1) {
-            Engine.result = "no";
+            Engine.exerciseResult = "no";
         } else {
-            Engine.result = "yes";
+            Engine.exerciseResult = "yes";
         }
     }
 }
