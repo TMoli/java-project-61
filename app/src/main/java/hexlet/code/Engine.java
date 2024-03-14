@@ -18,7 +18,7 @@ public class Engine {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner1.next();
-        System.out.println("Hello, " + userName + "!");
+        System.out.println("Hello" + userName + "!");
         System.out.println(exercise);
 
         for (var i = 0; i < 3; i++) {
