@@ -10,21 +10,23 @@ public class Prime {
     }
 
     public static void executeLogic() {
-        int number1 = (int) (Math.random() * (100 + 1) + 1);
-        Engine.exercise = Integer.toString(number1);
-        if (number1 == 2) {
+        int intervalMin = 1;
+        int intervalMax = 100;
+        int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
+        Engine.exercise = Integer.toString(randomNumber);
+        if (randomNumber == 2) {
             Engine.exerciseResult = "yes";
             return;
         }
-        if (number1 % 2 == 0) {
+        if (randomNumber % 2 == 0) {
             Engine.exerciseResult = "no";
             return;
         }
         int count = 0;
-        int lastNumber = number1 - 2;
+        int lastNumber = randomNumber - 2;
         int result;
         while (count != 1 & lastNumber > 2) {
-            result = number1 % lastNumber;
+            result = randomNumber % lastNumber;
             lastNumber = lastNumber - 2;
             if (result == 0) {
                 count++;

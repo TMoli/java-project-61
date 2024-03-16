@@ -11,19 +11,24 @@ public class Progression {
     }
 
     public static void executeLogic() {
-        int numbersLength = (int) (Math.random() * (10 + 1) + 5);
-        int firstNumber = (int) (Math.random() * (100 + 1) + 1);
-        int randomStep = (int) (Math.random() * (10 + 1) + 2);
+        int intervalMax1 = 100;
+        int intervalMax2 = 10;
+        int intervalMin1 = 1;
+        int intervalMin2 = 2;
+        int intervalMin3 = 5;
+        int randomNumbersLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
+        int firstNumber = (int) (Math.random() * (intervalMax1 - intervalMin1 + 1) + intervalMin1);
+        int randomStep = (int) (Math.random() * (intervalMax2 - intervalMin2 + 1) + intervalMin2);
         int lastNumber = firstNumber;
-        int[] randomNumbers = new int[numbersLength];
-        for (var i = 0; i < numbersLength; i++) {
+        int[] randomNumbers = new int[randomNumbersLength];
+        for (var i = 0; i < randomNumbersLength; i++) {
             randomNumbers[i] = lastNumber + randomStep;
             lastNumber = randomNumbers[i];
         }
-        int randomElement = (int) (Math.random() * (numbersLength) + 0);
+        int randomElement = (int) (Math.random() * (randomNumbersLength) + 0);
         StringJoiner joiner = new StringJoiner(" ");
-        String[] numbersToString = new String[numbersLength];
-        for (var i = 0; i < numbersLength; i++) {
+        String[] numbersToString = new String[randomNumbersLength];
+        for (var i = 0; i < randomNumbersLength; i++) {
             if (i == randomElement) {
                 Engine.exerciseResult = Integer.toString(randomNumbers[i]);
                 numbersToString[i] = "..";

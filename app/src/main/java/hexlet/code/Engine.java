@@ -12,15 +12,17 @@ public class Engine {
     public static String question = "";
     public static String exercise;
     public static String exerciseResult = "";
+    public static String userName = "";
 
     public static void startEngine() {
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String userName = scanner1.next();
+        userName = scanner1.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(question);
-        for (var i = 0; i < 3; i++) {
+        int roundsNumber = 3;
+        for (var i = 0; i < roundsNumber; i++) {
             switch (game) {
                 case "Even" -> Even.executeLogic();
                 case "Calc" -> Calc.executeLogic();

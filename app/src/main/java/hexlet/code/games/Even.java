@@ -9,9 +9,11 @@ public class Even {
     }
 
     public static void executeLogic() {
-        int number1 = (int) (Math.random() * (100 + 1) + 1);
-        Engine.exercise = Integer.toString(number1);
-        if (number1 % 2 == 0) {
+        int intervalMin = 1;
+        int intervalMax = 100;
+        int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
+        Engine.exercise = Integer.toString(randomNumber);
+        if (randomNumber % 2 == 0) {
             Engine.exerciseResult = "yes";
         } else {
             Engine.exerciseResult = "no";

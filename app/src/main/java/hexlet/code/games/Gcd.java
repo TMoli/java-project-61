@@ -10,18 +10,20 @@ public class Gcd {
     }
 
     public static void executeLogic() {
-        int number1 = (int) (Math.random() * (100 + 1) + 1);
-        int number2 = (int) (Math.random() * (100 + 1) + 1);
-        Engine.exercise = number1 + " " + number2;
+        int intervalMin = 1;
+        int intervalMax = 100;
+        int randomNumber1 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
+        int randomNumber2 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
+        Engine.exercise = randomNumber1 + " " + randomNumber2;
         int largerNumber;
         int smallerNumber;
         int calculation = 1;
-        if (number1 > number2) {
-            largerNumber = number1;
-            smallerNumber = number2;
+        if (randomNumber1 > randomNumber2) {
+            largerNumber = randomNumber1;
+            smallerNumber = randomNumber2;
         } else {
-            largerNumber = number2;
-            smallerNumber = number1;
+            largerNumber = randomNumber2;
+            smallerNumber = randomNumber1;
         }
         while (calculation != 0) {
             calculation = largerNumber % smallerNumber;
