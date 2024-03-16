@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.StringJoiner;
 
-public class Progression {
+final public class Progression {
     public static void startGame() {
         Engine.game = "Progression";
         Engine.question = "What number is missing in the progression?";

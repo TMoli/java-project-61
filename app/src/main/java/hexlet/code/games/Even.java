@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-public class Even {
+final public class Even {
     public static void startGame() {
         Engine.game = "Even";
         Engine.question = "Answer 'yes' if the number is even, otherwise answer 'no'.";

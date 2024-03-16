@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-public class Calc  {
+final public class Calc  {
     public static void startGame() {
         Engine.game = "Calc";
         Engine.question = "What is the result of the expression?";
