@@ -11,11 +11,11 @@ public class Progression {
     }
 
     public static void executeLogic() {
-        int intervalMax1 = 100;
-        int intervalMax2 = 10;
-        int intervalMin1 = 1;
-        int intervalMin2 = 2;
-        int intervalMin3 = 5;
+        final int intervalMax1 = 100;
+        final int intervalMax2 = 10;
+        final int intervalMin1 = 1;
+        final int intervalMin2 = 2;
+        final int intervalMin3 = 5;
         int randomNumbersLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
         int firstNumber = (int) (Math.random() * (intervalMax1 - intervalMin1 + 1) + intervalMin1);
         int randomStep = (int) (Math.random() * (intervalMax2 - intervalMin2 + 1) + intervalMin2);

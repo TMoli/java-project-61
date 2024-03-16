@@ -21,7 +21,7 @@ public class Engine {
         userName = scanner1.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(question);
-        int roundsNumber = 3;
+        final int roundsNumber = 3;
         for (var i = 0; i < roundsNumber; i++) {
             switch (game) {
                 case "Even" -> Even.executeLogic();

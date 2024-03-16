@@ -10,8 +10,8 @@ public class Prime {
     }
 
     public static void executeLogic() {
-        int intervalMin = 1;
-        int intervalMax = 100;
+        final int intervalMin = 1;
+        final int intervalMax = 100;
         int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
         Engine.exercise = Integer.toString(randomNumber);
         if (randomNumber == 2) {

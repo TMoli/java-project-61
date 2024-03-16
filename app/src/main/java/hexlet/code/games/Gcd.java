@@ -10,8 +10,8 @@ public class Gcd {
     }
 
     public static void executeLogic() {
-        int intervalMin = 1;
-        int intervalMax = 100;
+        final int intervalMin = 1;
+        final int intervalMax = 100;
         int randomNumber1 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
         int randomNumber2 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
         Engine.exercise = randomNumber1 + " " + randomNumber2;
