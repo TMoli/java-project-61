@@ -2,8 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 public class Even {
-    static String exercise;
-    static String exerciseResult;
+    private static String exercise;
+    private static String exerciseResult;
 
     public static void startGame() {
         Engine.setQuestion("Answer 'yes' if the number is even, otherwise answer 'no'.");

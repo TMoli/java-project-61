@@ -8,10 +8,9 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class Engine {
-    static String question = "";
-    static String exercise;
-    static String exerciseResult = "";
-    static String userName = "";
+    private static String question = "";
+    private static String exercise;
+    private static String exerciseResult = "";
 
     public static void setQuestion(String gameQuestion) {
         question = gameQuestion;
@@ -20,7 +19,7 @@ public class Engine {
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        userName = scanner1.next();
+        String userName = scanner1.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(question);
         final int roundsNumber = 3;

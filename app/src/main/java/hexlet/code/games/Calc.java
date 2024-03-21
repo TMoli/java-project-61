@@ -2,8 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 public class Calc  {
-    static String exercise;
-    static String exerciseResult;
+    private static String exercise;
+    private static String exerciseResult;
 
     public static void startGame() {
         Engine.setQuestion("What is the result of the expression?");

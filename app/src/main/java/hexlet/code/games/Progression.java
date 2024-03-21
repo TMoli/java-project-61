@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 import java.util.StringJoiner;
 
 public class Progression {
-    static String exercise;
-    static String exerciseResult;
+    private static String exercise;
+    private static String exerciseResult;
 
     public static void startGame() {
         Engine.setQuestion("What number is missing in the progression?");

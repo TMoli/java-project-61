@@ -3,8 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    static String exercise;
-    static String exerciseResult;
+    private static String exercise;
+    private static String exerciseResult;
 
     public static void startGame() {
         Engine.setQuestion("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
