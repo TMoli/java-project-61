@@ -4,9 +4,11 @@ import hexlet.code.Engine;
 import java.util.StringJoiner;
 
 public class Progression {
+    static String exercise;
+    static String exerciseResult;
+
     public static void startGame() {
-        Engine.game = "Progression";
-        Engine.question = "What number is missing in the progression?";
+        Engine.setQuestion("What number is missing in the progression?");
         Engine.startEngine();
     }
 
@@ -26,13 +28,21 @@ public class Progression {
         for (var i = 0; i < progressionLength; i++) {
             result = lastNumber + randomStep;
             if (i == randomElement) {
-                Engine.exerciseResult = Integer.toString(result);
+                exerciseResult = Integer.toString(result);
                 joiner.add("..");
             } else {
                 joiner.add(Integer.toString(result));
             }
             lastNumber = result;
         }
-        Engine.exercise = (joiner.toString());
+        exercise = (joiner.toString());
+    }
+
+    public static String getExercise() {
+        return exercise;
+    }
+
+    public static String getExerciseResult() {
+        return exerciseResult;
     }
 }

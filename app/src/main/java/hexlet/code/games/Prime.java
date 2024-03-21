@@ -3,9 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
+    static String exercise;
+    static String exerciseResult;
+
     public static void startGame() {
-        Engine.game = "Prime";
-        Engine.question = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        Engine.setQuestion("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Engine.startEngine();
     }
 
@@ -13,13 +15,13 @@ public class Prime {
         final int intervalMin = 1;
         final int intervalMax = 100;
         int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-        Engine.exercise = Integer.toString(randomNumber);
+        exercise = Integer.toString(randomNumber);
         if (randomNumber == 2) {
-            Engine.exerciseResult = "yes";
+            exerciseResult = "yes";
             return;
         }
         if (randomNumber % 2 == 0) {
-            Engine.exerciseResult = "no";
+            exerciseResult = "no";
             return;
         }
         int count = 0;
@@ -33,9 +35,17 @@ public class Prime {
             }
         }
         if (count == 1) {
-            Engine.exerciseResult = "no";
+            exerciseResult = "no";
         } else {
-            Engine.exerciseResult = "yes";
+            exerciseResult = "yes";
         }
+    }
+
+    public static String getExercise() {
+        return exercise;
+    }
+
+    public static String getExerciseResult() {
+        return exerciseResult;
     }
 }

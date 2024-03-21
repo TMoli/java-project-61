@@ -3,9 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Gcd {
+    static String exercise;
+    static String exerciseResult;
+
     public static void startGame() {
-        Engine.game = "Gcd";
-        Engine.question = "Find the greatest common divisor of given numbers.";
+        Engine.setQuestion("Find the greatest common divisor of given numbers.");
         Engine.startEngine();
     }
 
@@ -14,7 +16,7 @@ public class Gcd {
         final int intervalMax = 100;
         int randomNumber1 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
         int randomNumber2 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-        Engine.exercise = randomNumber1 + " " + randomNumber2;
+        exercise = randomNumber1 + " " + randomNumber2;
         int largerNumber;
         int smallerNumber;
         int calculation = 1;
@@ -32,6 +34,14 @@ public class Gcd {
                 smallerNumber = calculation;
             }
         }
-        Engine.exerciseResult = Integer.toString(smallerNumber);
+        exerciseResult = Integer.toString(smallerNumber);
+    }
+
+    public static String getExercise() {
+        return exercise;
+    }
+
+    public static String getExerciseResult() {
+        return exerciseResult;
     }
 }
