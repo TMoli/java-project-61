@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.StringJoiner;
 
-final public class Progression {
+public class Progression {
     public static void startGame() {
         Engine.game = "Progression";
         Engine.question = "What number is missing in the progression?";
@@ -16,26 +16,22 @@ final public class Progression {
         final int intervalMin1 = 1;
         final int intervalMin2 = 2;
         final int intervalMin3 = 5;
-        int randomNumbersLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
+        int progressionLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
         int firstNumber = (int) (Math.random() * (intervalMax1 - intervalMin1 + 1) + intervalMin1);
         int randomStep = (int) (Math.random() * (intervalMax2 - intervalMin2 + 1) + intervalMin2);
         int lastNumber = firstNumber;
-        int[] randomNumbers = new int[randomNumbersLength];
-        for (var i = 0; i < randomNumbersLength; i++) {
-            randomNumbers[i] = lastNumber + randomStep;
-            lastNumber = randomNumbers[i];
-        }
-        int randomElement = (int) (Math.random() * (randomNumbersLength) + 0);
         StringJoiner joiner = new StringJoiner(" ");
-        String[] numbersToString = new String[randomNumbersLength];
-        for (var i = 0; i < randomNumbersLength; i++) {
+        int randomElement = (int) (Math.random() * (progressionLength) + 0);
+        int result;
+        for (var i = 0; i < progressionLength; i++) {
+            result = lastNumber + randomStep;
             if (i == randomElement) {
-                Engine.exerciseResult = Integer.toString(randomNumbers[i]);
-                numbersToString[i] = "..";
+                Engine.exerciseResult = Integer.toString(result);
+                joiner.add("..");
             } else {
-                numbersToString[i] = Integer.toString(randomNumbers[i]);
+                joiner.add(Integer.toString(result));
             }
-            joiner.add(numbersToString[i]);
+            lastNumber = result;
         }
         Engine.exercise = (joiner.toString());
     }
