@@ -10,11 +10,11 @@ public class Progression {
         final int intervalMin1 = 1;
         final int intervalMin2 = 2;
         final int intervalMin3 = 5;
-        final int gameValuesLength = 3;
+        final int gameValuesRowsNumber = 3;
         String exercise;
         String exerciseResult = "";
         String[][] gameValues = new String[2][3];
-        for (var i = 0; i != gameValuesLength; i++) {
+        for (var i = 0; i != gameValuesRowsNumber; i++) {
             int progressionLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
             int firstNumber = (int) (Math.random() * (intervalMax1 - intervalMin1 + 1) + intervalMin1);
             int randomStep = (int) (Math.random() * (intervalMax2 - intervalMin2 + 1) + intervalMin2);
