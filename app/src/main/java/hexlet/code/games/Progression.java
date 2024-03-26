@@ -13,7 +13,7 @@ public class Progression {
         final int gameValuesRowsNumber = 3;
         String exercise;
         String exerciseResult = "";
-        String[][] gameValues = new String[2][3];
+        String[][] gameValues = new String[2][gameValuesRowsNumber];
         for (var i = 0; i != gameValuesRowsNumber; i++) {
             int progressionLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
             int firstNumber = (int) (Math.random() * (intervalMax1 - intervalMin1 + 1) + intervalMin1);

@@ -5,12 +5,12 @@ public class Calc  {
     public static void startGame() {
         final int intervalMin = 1;
         final int intervalMax = 100;
-        final int gameValuesLength = 3;
+        final int gameValuesRowsNumber= 3;
         String exercise;
         String exerciseResult;
         char[] operators = new char[]{'+', '-', '*'};
-        String[][] gameValues = new String[2][3];
-        for (var i = 0; i != gameValuesLength; i++) {
+        String[][] gameValues = new String[2][gameValuesRowsNumber];
+        for (var i = 0; i != gameValuesRowsNumber; i++) {
             int randomNumber1 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
             int randomNumber2 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
             char randomOperator = operators[(int) (Math.random() * (2 + 1) + 0)];
