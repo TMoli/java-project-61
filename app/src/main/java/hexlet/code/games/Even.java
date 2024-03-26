@@ -2,31 +2,26 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 public class Even {
-    private static String exercise;
-    private static String exerciseResult;
-
     public static void startGame() {
-        Engine.setQuestion("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Engine.startEngine();
-    }
-
-    public static void executeLogic() {
         final int intervalMin = 1;
         final int intervalMax = 100;
-        int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-        exercise = Integer.toString(randomNumber);
-        if (randomNumber % 2 == 0) {
-            exerciseResult = "yes";
-        } else {
-            exerciseResult = "no";
+        final int gameValuesLength = 3;
+        String exercise;
+        String exerciseResult;
+        String[][] gameValues = new String[2][3];
+        for (var i = 0; i != gameValuesLength; i++) {
+            int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
+            exercise = Integer.toString(randomNumber);
+            if (randomNumber % 2 == 0) {
+                exerciseResult = "yes";
+            } else {
+                exerciseResult = "no";
+            }
+            gameValues[0][i] = exercise;
+            gameValues[1][i] = exerciseResult;
         }
-    }
-
-    public static String getExercise() {
-        return exercise;
-    }
-
-    public static String getExerciseResult() {
-        return exerciseResult;
+        Engine.setGameExercise("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Engine.setGameValues(gameValues);
+        Engine.startEngine();
     }
 }

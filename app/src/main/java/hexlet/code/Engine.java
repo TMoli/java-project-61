@@ -1,66 +1,36 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
 
 public class Engine {
-    private static String question = "";
-    private static String exercise;
-    private static String exerciseResult = "";
+    private static String gameExercise;
+    private static String[][] gameValues;
 
-    public static void setQuestion(String gameQuestion) {
-        question = gameQuestion;
+    public static void setGameExercise(String exercise) {
+        gameExercise = exercise;
     }
+
+    public static void setGameValues(String[][] values) {
+        gameValues = values;
+    }
+
     public static void startEngine() {
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner1.next();
         System.out.println("Hello, " + userName + "!");
-        System.out.println(question);
+        System.out.println(gameExercise);
         final int roundsNumber = 3;
         for (var i = 0; i < roundsNumber; i++) {
-            switch (question) {
-                case "Answer 'yes' if the number is even, otherwise answer 'no'." -> {
-                    Even.executeLogic();
-                    exercise = Even.getExercise();
-                    exerciseResult = Even.getExerciseResult();
-                }
-                case "What is the result of the expression?" -> {
-                    Calc.executeLogic();
-                    exercise = Calc.getExercise();
-                    exerciseResult = Calc.getExerciseResult();
-                }
-                case "Find the greatest common divisor of given numbers." -> {
-                    Gcd.executeLogic();
-                    exercise = Gcd.getExercise();
-                    exerciseResult = Gcd.getExerciseResult();
-                }
-                case "What number is missing in the progression?" -> {
-                    Progression.executeLogic();
-                    exercise = Progression.getExercise();
-                    exerciseResult = Progression.getExerciseResult();
-                }
-                case "Answer 'yes' if given number is prime. Otherwise answer 'no'." -> {
-                    Prime.executeLogic();
-                    exercise = Prime.getExercise();
-                    exerciseResult = Prime.getExerciseResult();
-                }
-                default -> {
-                }
-            }
-            System.out.println("Question: " + exercise);
+            System.out.println("Question: " + gameValues[0][i]);
             System.out.print("Your answer: ");
             String answer = scanner1.next();
-            if (exerciseResult.equals(answer)) {
+            if (gameValues[1][i].equals(answer)) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'"
-                        + exerciseResult + "'." + "\nLet's try again, " + userName + "!");
+                        + gameValues[1][i] + "'." + "\nLet's try again, " + userName + "!");
                 return;
             }
         }

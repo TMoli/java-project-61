@@ -3,49 +3,42 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    private static String exercise;
-    private static String exerciseResult;
-
     public static void startGame() {
-        Engine.setQuestion("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        Engine.startEngine();
-    }
-
-    public static void executeLogic() {
         final int intervalMin = 1;
         final int intervalMax = 100;
-        int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-        exercise = Integer.toString(randomNumber);
-        if (randomNumber == 2) {
-            exerciseResult = "yes";
-            return;
-        }
-        if (randomNumber % 2 == 0) {
-            exerciseResult = "no";
-            return;
-        }
-        int count = 0;
-        int lastNumber = randomNumber - 2;
-        int result;
-        while (count != 1 & lastNumber > 2) {
-            result = randomNumber % lastNumber;
-            lastNumber = lastNumber - 2;
-            if (result == 0) {
-                count++;
+        final int gameValuesLength = 3;
+        String exercise;
+        String exerciseResult;
+        String[][] gameValues = new String[2][3];
+        for (var i = 0; i != gameValuesLength; i++) {
+            int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
+            exercise = Integer.toString(randomNumber);
+            if (randomNumber == 2) {
+                exerciseResult = "yes";
+            } else if (randomNumber % 2 == 0) {
+                exerciseResult = "no";
+            } else {
+                int count = 0;
+                int lastNumber = randomNumber - 2;
+                int result;
+                while (count != 1 & lastNumber > 2) {
+                    result = randomNumber % lastNumber;
+                    lastNumber = lastNumber - 2;
+                    if (result == 0) {
+                        count++;
+                    }
+                }
+                if (count == 1) {
+                    exerciseResult = "no";
+                } else {
+                    exerciseResult = "yes";
+                }
             }
+            gameValues[0][i] = exercise;
+            gameValues[1][i] = exerciseResult;
         }
-        if (count == 1) {
-            exerciseResult = "no";
-        } else {
-            exerciseResult = "yes";
-        }
-    }
-
-    public static String getExercise() {
-        return exercise;
-    }
-
-    public static String getExerciseResult() {
-        return exerciseResult;
+        Engine.setGameExercise("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Engine.setGameValues(gameValues);
+        Engine.startEngine();
     }
 }
