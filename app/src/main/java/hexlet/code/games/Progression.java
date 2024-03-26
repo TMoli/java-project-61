@@ -11,8 +11,6 @@ public class Progression {
         final int intervalMin2 = 2;
         final int intervalMin3 = 5;
         final int gameValuesRowsNumber = 3;
-        String exercise;
-        String exerciseResult = "";
         String[][] gameValues = new String[2][gameValuesRowsNumber];
         for (var i = 0; i != gameValuesRowsNumber; i++) {
             int progressionLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
@@ -25,16 +23,14 @@ public class Progression {
             for (var k = 0; k < progressionLength; k++) {
                 result = lastNumber + randomStep;
                 if (k == randomElement) {
-                    exerciseResult = Integer.toString(result);
+                    gameValues[1][i] = Integer.toString(result);
                     joiner.add("..");
                 } else {
                     joiner.add(Integer.toString(result));
                 }
                 lastNumber = result;
             }
-            exercise = (joiner.toString());
-            gameValues[0][i] = exercise;
-            gameValues[1][i] = exerciseResult;
+            gameValues[0][i] = (joiner.toString());
         }
         Engine.setGameExercise("What number is missing in the progression?");
         Engine.setGameValues(gameValues);

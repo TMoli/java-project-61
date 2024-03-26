@@ -6,19 +6,15 @@ public class Even {
         final int intervalMin = 1;
         final int intervalMax = 100;
         final int gameValuesRowsNumber = 3;
-        String exercise;
-        String exerciseResult;
         String[][] gameValues = new String[2][gameValuesRowsNumber];
         for (var i = 0; i != gameValuesRowsNumber; i++) {
             int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-            exercise = Integer.toString(randomNumber);
+            gameValues[0][i] = Integer.toString(randomNumber);
             if (randomNumber % 2 == 0) {
-                exerciseResult = "yes";
+                gameValues[1][i] = "yes";
             } else {
-                exerciseResult = "no";
+                gameValues[1][i] = "no";
             }
-            gameValues[0][i] = exercise;
-            gameValues[1][i] = exerciseResult;
         }
         Engine.setGameExercise("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Engine.setGameValues(gameValues);

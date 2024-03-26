@@ -7,16 +7,14 @@ public class Prime {
         final int intervalMin = 1;
         final int intervalMax = 100;
         final int gameValuesRowsNumber = 3;
-        String exercise;
-        String exerciseResult;
         String[][] gameValues = new String[2][gameValuesRowsNumber];
         for (var i = 0; i != gameValuesRowsNumber; i++) {
             int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-            exercise = Integer.toString(randomNumber);
+            gameValues[0][i] = Integer.toString(randomNumber);
             if (randomNumber == 2) {
-                exerciseResult = "yes";
+                gameValues[1][i] = "yes";
             } else if (randomNumber % 2 == 0) {
-                exerciseResult = "no";
+                gameValues[1][i] = "no";
             } else {
                 int count = 0;
                 int lastNumber = randomNumber - 2;
@@ -29,13 +27,11 @@ public class Prime {
                     }
                 }
                 if (count == 1) {
-                    exerciseResult = "no";
+                    gameValues[1][i] = "no";
                 } else {
-                    exerciseResult = "yes";
+                    gameValues[1][i] = "yes";
                 }
             }
-            gameValues[0][i] = exercise;
-            gameValues[1][i] = exerciseResult;
         }
         Engine.setGameExercise("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Engine.setGameValues(gameValues);

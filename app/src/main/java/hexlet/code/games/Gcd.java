@@ -7,13 +7,11 @@ public class Gcd {
         final int intervalMin = 1;
         final int intervalMax = 100;
         final int gameValuesRowsNumber = 3;
-        String exercise;
-        String exerciseResult;
         String[][] gameValues = new String[2][gameValuesRowsNumber];
         for (var i = 0; i != gameValuesRowsNumber; i++) {
             int randomNumber1 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
             int randomNumber2 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-            exercise = randomNumber1 + " " + randomNumber2;
+            gameValues[0][i] = randomNumber1 + " " + randomNumber2;
             int largerNumber;
             int smallerNumber;
             int calculation = 1;
@@ -31,9 +29,7 @@ public class Gcd {
                     smallerNumber = calculation;
                 }
             }
-            exerciseResult = Integer.toString(smallerNumber);
-            gameValues[0][i] = exercise;
-            gameValues[1][i] = exerciseResult;
+            gameValues[1][i] = Integer.toString(smallerNumber);
         }
         Engine.setGameExercise("Find the greatest common divisor of given numbers.");
         Engine.setGameValues(gameValues);
