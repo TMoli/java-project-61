@@ -5,7 +5,7 @@ public class Calc  {
     public static void startGame() {
         final int intervalMin = 1;
         final int intervalMax = 100;
-        final int gameValuesRowsNumber= 3;
+        final int gameValuesRowsNumber = 3;
         String exercise;
         String exerciseResult;
         char[] operators = new char[]{'+', '-', '*'};
