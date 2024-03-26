@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    public static void startGame() {
+    public static void startPrime() {
         final int intervalMin = 1;
         final int intervalMax = 100;
         final int gameValuesRowsNumber = 3;

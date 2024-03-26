@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 import java.util.StringJoiner;
 
 public class Progression {
-    public static void startGame() {
+    public static void startProgression() {
         final int intervalMax1 = 100;
         final int intervalMax2 = 10;
         final int intervalMin1 = 1;

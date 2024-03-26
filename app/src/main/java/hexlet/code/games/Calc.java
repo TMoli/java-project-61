@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 public class Calc  {
-    public static void startGame() {
+    public static void startCalc() {
         final int intervalMin = 1;
         final int intervalMax = 100;
         final int gameValuesRowsNumber = 3;
