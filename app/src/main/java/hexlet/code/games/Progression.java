@@ -16,12 +16,14 @@ public class Progression {
     public static int[] generateRoundData() {
         Random random = new Random();
         int[] data = new int[DATA_LENGTH];
+
         data[0] = random.nextInt(PROGRESSION_INTERVAL_MAX - PROGRESSION_INTERVAL_MIN + 1)
                 + PROGRESSION_INTERVAL_MIN; //progression length
+        int randomElementNumber = data[0];
         data[1] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL); //first number
         data[2] = random.nextInt(RANDOM_STEP_INTERVAL_MAX - RANDOM_STEP_INTERVAL_MIN + 1)
                 + RANDOM_STEP_INTERVAL_MIN; //random step
-        data[3] = random.nextInt(data[0]); //random element from 0 to progression length
+        data[3] = random.nextInt(randomElementNumber); //random element from 0 to progression length
         return data;
     }
 
