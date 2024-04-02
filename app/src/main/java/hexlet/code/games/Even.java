@@ -5,9 +5,11 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
+    static final int RANDOM_NUMBER_MAX_INTERVAL = 101;
+
     public static int generateRoundData() {
         Random random = new Random();
-        return random.nextInt(101);
+        return random.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
     }
 
     public static String[] doEvenCheck() {

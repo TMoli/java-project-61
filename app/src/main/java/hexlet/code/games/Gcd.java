@@ -5,12 +5,13 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Gcd {
+    static final int RANDOM_NUMBER_MAX_INTERVAL = 101;
 
     public static int[] generateRoundData() {
         Random random = new Random();
         int[] data = new int[2];
-        data[0] = random.nextInt(101);
-        data[1] = random.nextInt(101);
+        data[0] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
+        data[1] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
         return data;
     }
 
