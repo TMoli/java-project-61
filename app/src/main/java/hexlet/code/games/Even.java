@@ -25,9 +25,9 @@ public class Even {
     public static String[][] collectRounds() {
         String[][] rounds = new String[Engine.ROUNDS_NUMBER][2];
         for (var i = 0; i != Engine.ROUNDS_NUMBER; i++) {
-            String[] checksResults = doEvenCheck();
-            rounds[i][0] = checksResults[0];
-            rounds[i][1] = checksResults[1];
+            String[] evenResults = doEvenCheck();
+            rounds[i][0] = evenResults[0];
+            rounds[i][1] = evenResults[1];
         }
         return rounds;
     }
