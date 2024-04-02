@@ -1,39 +1,58 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+
+import java.util.Random;
 import java.util.StringJoiner;
 
 public class Progression {
-    public static void startProgression() {
-        final int intervalMax1 = 100;
-        final int intervalMax2 = 10;
-        final int intervalMin1 = 1;
-        final int intervalMin2 = 2;
-        final int intervalMin3 = 5;
-        final int gameValuesRowsNumber = 3;
-        String[][] gameValues = new String[2][gameValuesRowsNumber];
-        for (var i = 0; i != gameValuesRowsNumber; i++) {
-            int progressionLength = (int) (Math.random() * (intervalMax2 - intervalMin3 + 1) + intervalMin3);
-            int firstNumber = (int) (Math.random() * (intervalMax1 - intervalMin1 + 1) + intervalMin1);
-            int randomStep = (int) (Math.random() * (intervalMax2 - intervalMin2 + 1) + intervalMin2);
-            int lastNumber = firstNumber;
-            StringJoiner joiner = new StringJoiner(" ");
-            int randomElement = (int) (Math.random() * (progressionLength) + 0);
-            int result;
-            for (var k = 0; k < progressionLength; k++) {
-                result = lastNumber + randomStep;
-                if (k == randomElement) {
-                    gameValues[1][i] = Integer.toString(result);
-                    joiner.add("..");
-                } else {
-                    joiner.add(Integer.toString(result));
-                }
-                lastNumber = result;
+    static final int INTERVAL_MIN1 = 2;
+    static final int INTERVAL_MIN2 = 5;
+    static final int INTERVAL_MAX = 10;
+
+    public static int[] generateRoundData() {
+        Random random = new Random();
+        int[] data = new int[4];
+        data[0] = random.nextInt(INTERVAL_MAX - INTERVAL_MIN2 + 1) + INTERVAL_MIN2; //progression length
+        data[1] = random.nextInt(101); //first number
+        data[2] = random.nextInt(INTERVAL_MAX - INTERVAL_MIN1 + 1) + INTERVAL_MIN1; //random step
+        data[3] = random.nextInt(data[0]); //random element
+        return data;
+    }
+
+    public static String[] generateProgression() {
+        int[] generatedData = generateRoundData();
+        String[] results = new String[2];
+        int lastNumber = generatedData[1];
+        StringJoiner joiner = new StringJoiner(" ");
+        int currentNumber;
+        for (var k = 0; k < generatedData[0]; k++) {
+            currentNumber = lastNumber + generatedData[2];
+            if (k == generatedData[3]) {
+                results[1] = Integer.toString(currentNumber);
+                joiner.add("..");
+            } else {
+                joiner.add(Integer.toString(currentNumber));
             }
-            gameValues[0][i] = (joiner.toString());
+            lastNumber = currentNumber;
+            results[0] = (joiner.toString());
         }
-        Engine.setGameExercise("What number is missing in the progression?");
-        Engine.setGameValues(gameValues);
-        Engine.startEngine();
+        return results;
+    }
+
+
+    public static String[][] collectRounds() {
+        String[][] rounds = new String[Engine.ROUNDS_NUMBER][2];
+        for (var i = 0; i != Engine.ROUNDS_NUMBER; i++) {
+            String[] progressionResults = generateProgression();
+            rounds[i][0] = progressionResults[0];
+            rounds[i][1] = progressionResults[1];
+        }
+        return rounds;
+    }
+
+    public static void startGame() {
+        String gameExercise = "What number is missing in the progression?";
+        Engine.startEngine(gameExercise, collectRounds());
     }
 }

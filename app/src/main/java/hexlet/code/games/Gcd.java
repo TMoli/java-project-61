@@ -2,37 +2,55 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Random;
+
 public class Gcd {
-    public static void startGcd() {
-        final int intervalMin = 1;
-        final int intervalMax = 100;
-        final int gameValuesRowsNumber = 3;
-        String[][] gameValues = new String[2][gameValuesRowsNumber];
-        for (var i = 0; i != gameValuesRowsNumber; i++) {
-            int randomNumber1 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-            int randomNumber2 = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-            gameValues[0][i] = randomNumber1 + " " + randomNumber2;
-            int largerNumber;
-            int smallerNumber;
-            int calculation = 1;
-            if (randomNumber1 > randomNumber2) {
-                largerNumber = randomNumber1;
-                smallerNumber = randomNumber2;
-            } else {
-                largerNumber = randomNumber2;
-                smallerNumber = randomNumber1;
-            }
-            while (calculation != 0) {
-                calculation = largerNumber % smallerNumber;
-                if (calculation != 0) {
-                    largerNumber = smallerNumber;
-                    smallerNumber = calculation;
-                }
-            }
-            gameValues[1][i] = Integer.toString(smallerNumber);
+
+    public static int[] generateRoundData() {
+        Random random = new Random();
+        int[] data = new int[2];
+        data[0] = random.nextInt(101);
+        data[1] = random.nextInt(101);
+        return data;
+    }
+
+    public static String[] doGcdFind() {
+        int[] generatedData = generateRoundData();
+        String[] results = new String[2];
+        results[0] = generatedData[0] + " " + generatedData[1];
+        int largerNumber;
+        int smallerNumber;
+        int calculation = 1;
+        if (generatedData[0] > generatedData[1]) {
+            largerNumber = generatedData[0];
+            smallerNumber = generatedData[1];
+        } else {
+            largerNumber = generatedData[1];
+            smallerNumber = generatedData[0];
         }
-        Engine.setGameExercise("Find the greatest common divisor of given numbers.");
-        Engine.setGameValues(gameValues);
-        Engine.startEngine();
+        while (calculation != 0) {
+            calculation = largerNumber % smallerNumber;
+            if (calculation != 0) {
+                largerNumber = smallerNumber;
+                smallerNumber = calculation;
+            }
+        }
+        results[1] = Integer.toString(smallerNumber);
+        return results;
+    }
+
+    public static String[][] collectRounds() {
+        String[][] rounds = new String[Engine.ROUNDS_NUMBER][2];
+        for (var i = 0; i != Engine.ROUNDS_NUMBER; i++) {
+            String[] gcdResults = doGcdFind();
+            rounds[i][0] = gcdResults[0];
+            rounds[i][1] = gcdResults[1];
+        }
+        return rounds;
+    }
+
+    public static void startGame() {
+        String gameExercise = "Find the greatest common divisor of given numbers.";
+        Engine.startEngine(gameExercise, collectRounds());
     }
 }

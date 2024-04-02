@@ -1,23 +1,39 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+
+import java.util.Random;
+
 public class Even {
-    public static void startEven() {
-        final int intervalMin = 1;
-        final int intervalMax = 100;
-        final int gameValuesRowsNumber = 3;
-        String[][] gameValues = new String[2][gameValuesRowsNumber];
-        for (var i = 0; i != gameValuesRowsNumber; i++) {
-            int randomNumber = (int) (Math.random() * (intervalMax - intervalMin + 1) + intervalMin);
-            gameValues[0][i] = Integer.toString(randomNumber);
-            if (randomNumber % 2 == 0) {
-                gameValues[1][i] = "yes";
-            } else {
-                gameValues[1][i] = "no";
-            }
+    public static int generateRoundData() {
+        Random random = new Random();
+        return random.nextInt(101);
+    }
+
+    public static String[] doEvenCheck() {
+        int generatedData = generateRoundData();
+        String[] results = new String[2];
+        results[0] = Integer.toString(generatedData);
+        if (generatedData % 2 == 0) {
+            results[1] = "yes";
+        } else {
+            results[1] = "no";
         }
-        Engine.setGameExercise("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Engine.setGameValues(gameValues);
-        Engine.startEngine();
+        return results;
+    }
+
+    public static String[][] collectRounds() {
+        String[][] rounds = new String[Engine.ROUNDS_NUMBER][2];
+        for (var i = 0; i != Engine.ROUNDS_NUMBER; i++) {
+            String[] checksResults = doEvenCheck();
+            rounds[i][0] = checksResults[0];
+            rounds[i][1] = checksResults[1];
+        }
+        return rounds;
+    }
+
+    public static void startGame() {
+        String gameExercise = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.startEngine(gameExercise, collectRounds());
     }
 }
