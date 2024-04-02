@@ -7,10 +7,12 @@ public class Calc  {
     static final char[] OPERATORS = new char[]{'+', '-', '*'};
     static final int RANDOM_NUMBER_MAX_INTERVAL = 101;
     static final int RANDOM_OPERATORS_MAX_INTERVAL = 3;
+    static final int DATA_LENGTH = 3;
+
 
     public static String[] generateRoundData() {
         Random random = new Random();
-        String[] data = new String[3];
+        String[] data = new String[DATA_LENGTH];
         data[0] = Integer.toString(random.nextInt(RANDOM_NUMBER_MAX_INTERVAL));
         data[1] = Integer.toString(random.nextInt(RANDOM_NUMBER_MAX_INTERVAL));
         data[2] = Character.toString(OPERATORS[random.nextInt(RANDOM_OPERATORS_MAX_INTERVAL)]);

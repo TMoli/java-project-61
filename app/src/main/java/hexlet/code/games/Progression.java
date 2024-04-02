@@ -11,10 +11,11 @@ public class Progression {
     static final int PROGRESSION_INTERVAL_MAX = 10;
     static final int RANDOM_STEP_INTERVAL_MIN = 2;
     static final int RANDOM_STEP_INTERVAL_MAX = 10;
+    static final int DATA_LENGTH = 4;
 
     public static int[] generateRoundData() {
         Random random = new Random();
-        int[] data = new int[4];
+        int[] data = new int[DATA_LENGTH];
         data[0] = random.nextInt(PROGRESSION_INTERVAL_MAX - PROGRESSION_INTERVAL_MIN + 1)
                 + PROGRESSION_INTERVAL_MIN; //progression length
         data[1] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL); //first number
