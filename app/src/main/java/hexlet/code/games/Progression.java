@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+
 import java.util.Random;
 import java.util.StringJoiner;
 
@@ -13,17 +14,17 @@ public class Progression {
     static final int RANDOM_STEP_INTERVAL_MAX = 10;
     static final int DATA_LENGTH = 4;
 
+
     public static int[] generateRoundData() {
         Random random = new Random();
         int[] data = new int[DATA_LENGTH];
 
         data[0] = random.nextInt(PROGRESSION_INTERVAL_MAX - PROGRESSION_INTERVAL_MIN + 1)
                 + PROGRESSION_INTERVAL_MIN; //progression length
-        int randomElementNumber = data[0];
         data[1] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL); //first number
         data[2] = random.nextInt(RANDOM_STEP_INTERVAL_MAX - RANDOM_STEP_INTERVAL_MIN + 1)
                 + RANDOM_STEP_INTERVAL_MIN; //random step
-        data[3] = random.nextInt(randomElementNumber); //random element from 0 to progression length
+        data[DATA_LENGTH - 1] = random.nextInt(data[0]); //random element from 0 to progression length
         return data;
     }
 
@@ -35,7 +36,7 @@ public class Progression {
         int currentNumber;
         for (var k = 0; k < generatedData[0]; k++) {
             currentNumber = lastNumber + generatedData[2];
-            if (k == generatedData[3]) {
+            if (k == generatedData[DATA_LENGTH - 1]) {
                 results[1] = Integer.toString(currentNumber);
                 joiner.add("..");
             } else {
