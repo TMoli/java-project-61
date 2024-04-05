@@ -1,32 +1,21 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
+
 
 public class Gcd {
-    static final int RANDOM_NUMBER_MAX_INTERVAL = 101;
 
-    public static int[] generateRoundData() {
-        Random random = new Random();
-        int[] data = new int[2];
-        data[0] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
-        data[1] = random.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
-        return data;
-    }
-
-    public static String[] doGcdFind() {
-        int[] generatedData = generateRoundData();
-        String[] results = new String[2];
-        results[0] = generatedData[0] + " " + generatedData[1];
+    public static int findGcd(int number1, int number2) {
         int largerNumber;
         int smallerNumber;
         int calculation = 1;
-        if (generatedData[0] > generatedData[1]) {
-            largerNumber = generatedData[0];
-            smallerNumber = generatedData[1];
+        if (number1 > number2) {
+            largerNumber = number1;
+            smallerNumber = number2;
         } else {
-            largerNumber = generatedData[1];
-            smallerNumber = generatedData[0];
+            largerNumber = number2;
+            smallerNumber = number1;
         }
         while (calculation != 0) {
             calculation = largerNumber % smallerNumber;
@@ -35,22 +24,23 @@ public class Gcd {
                 smallerNumber = calculation;
             }
         }
-        results[1] = Integer.toString(smallerNumber);
-        return results;
+        return smallerNumber;
     }
 
-    public static String[][] collectRounds() {
-        String[][] rounds = new String[Engine.ROUNDS_NUMBER][2];
-        for (var i = 0; i != Engine.ROUNDS_NUMBER; i++) {
-            String[] gcdResults = doGcdFind();
-            rounds[i][0] = gcdResults[0];
-            rounds[i][1] = gcdResults[1];
+    public static String[][] generateRandomData() {
+        int number1 = Utils.randomNumber();
+        int number2 = Utils.randomNumber();
+        int gcd = findGcd(number1, number2);
+        String[][] rounds = new String[Engine.ROUNDS_COUNT][2];
+        for (var i = 0; i != Engine.ROUNDS_COUNT; i++) {
+            rounds[i][0] = number1 + " " + number2;
+            rounds[i][1] = Integer.toString(gcd);
         }
         return rounds;
     }
 
     public static void startGame() {
         String gameExercise = "Find the greatest common divisor of given numbers.";
-        Engine.startEngine(gameExercise, collectRounds());
+        Engine.startEngine(gameExercise, generateRandomData());
     }
 }
