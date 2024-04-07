@@ -23,7 +23,7 @@ public class Even {
     }
 
     public static void startGame() {
-        String gameExercise = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        Engine.startEngine(gameExercise, generateRoundData());
+        String exercise = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.startEngine(exercise, generateRoundData());
     }
 }

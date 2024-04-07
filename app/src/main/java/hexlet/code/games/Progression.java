@@ -5,13 +5,18 @@ import java.util.StringJoiner;
 import hexlet.code.Utils;
 
 public class Progression {
+    static final int FIRST_NUMBER = 55;
+    static final int PROGRESSION_LENGTH = 10;
+    static final int PROGRESSION_STEP = 5;
+    static final int DATA_ELEMENT3 = 3;
+
     public static String[] doProgression(int[] data) {
         String[] results = new String[2];
         int lastNumber = data[0];
         StringJoiner joiner = new StringJoiner(" ");
         int currentNumber;
         for (var k = 0; k < data[2]; k++) {
-            currentNumber = lastNumber + data[3];
+            currentNumber = lastNumber + data[DATA_ELEMENT3];
             if (k == data[1]) {
                 results[1] = Integer.toString(currentNumber);
                 joiner.add("..");
@@ -27,13 +32,13 @@ public class Progression {
     public static String[][] generateRoundData() {
         String[][] rounds = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i != Engine.ROUNDS_COUNT; i++) {
-            rounds[i] = doProgression(Utils.randomData(55, 10, 5));
+            rounds[i] = doProgression(Utils.randomData(FIRST_NUMBER, PROGRESSION_LENGTH, PROGRESSION_STEP));
         }
         return rounds;
     }
 
     public static void startGame() {
-        String gameExercise = "What number is missing in the progression?";
-        Engine.startEngine(gameExercise, generateRoundData());
+        String exercise = "What number is missing in the progression?";
+        Engine.startEngine(exercise, generateRoundData());
     }
 }

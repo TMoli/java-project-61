@@ -40,7 +40,7 @@ public class Prime {
     }
 
     public static void startGame() {
-        String gameExercise = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        Engine.startEngine(gameExercise, generateRoundData());
+        String exercise = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        Engine.startEngine(exercise, generateRoundData());
     }
 }

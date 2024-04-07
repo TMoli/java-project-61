@@ -26,8 +26,8 @@ public class Calc  {
     }
 
     public static void startGame() {
-        String gameExercise = "What is the result of the expression?";
-        Engine.startEngine(gameExercise, generateRoundData());
+        String exercise = "What is the result of the expression?";
+        Engine.startEngine(exercise, generateRoundData());
     }
 }
 

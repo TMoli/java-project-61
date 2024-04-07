@@ -40,7 +40,7 @@ public class Gcd {
     }
 
     public static void startGame() {
-        String gameExercise = "Find the greatest common divisor of given numbers.";
-        Engine.startEngine(gameExercise, generateRandomData());
+        String exercise = "Find the greatest common divisor of given numbers.";
+        Engine.startEngine(exercise, generateRandomData());
     }
 }
