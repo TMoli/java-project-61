@@ -18,9 +18,9 @@ public class Utils {
         return RANDOM.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
     }
 
-    public static String correctAnswer(boolean check) {
+    public static String correctAnswer(boolean checkResult) {
         String answer;
-        if (check) {
+        if (checkResult) {
             answer = "yes";
         } else {
             answer = "no";
