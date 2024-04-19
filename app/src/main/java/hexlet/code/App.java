@@ -27,7 +27,7 @@ public class App {
             case "4" ->  Gcd.startGame();
             case "5" ->  Progression.startGame();
             case "6" ->  Prime.startGame();
-            default -> throw new RuntimeException();
+            default -> { }
         }
         scanner.close();
     }
