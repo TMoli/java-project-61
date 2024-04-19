@@ -12,11 +12,7 @@ public class Even {
         String[] generatedRound = new String[2];
         int number = Utils.randomNumber();
         generatedRound[0] = Integer.toString(number);
-        if (isEven(number)) {
-            generatedRound[1] = "yes";
-        } else {
-            generatedRound[1] = "no";
-        }
+        generatedRound[1] = Utils.correctAnswer(isEven(number));
         return generatedRound;
     }
 

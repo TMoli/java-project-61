@@ -17,4 +17,14 @@ public class Utils {
     public static int randomNumber() {
         return RANDOM.nextInt(RANDOM_NUMBER_MAX_INTERVAL);
     }
+
+    public static String correctAnswer(boolean check) {
+        String answer;
+        if (check) {
+            answer = "yes";
+        } else {
+            answer = "no";
+        }
+        return answer;
+    }
 }
