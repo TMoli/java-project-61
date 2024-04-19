@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS_COUNT = 3;
-    public static void startEngine(String gameExercise, String[][] roundsData) {
+    public static void startEngine(String gameExercise, String[][] rounds) {
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner1.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println(gameExercise);
-        for (String[] roundData : roundsData) {
-            System.out.println("Question: " + roundData[0]);
+        for (String[] round : rounds) {
+            System.out.println("Question: " + round[0]);
             System.out.print("Your answer: ");
             String answer = scanner1.next();
-            if (roundData[1].equals(answer)) {
+            if (round[1].equals(answer)) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + "'"
-                        + roundData[1] + "'." + "\nLet's try again, " + userName + "!");
+                        + round[1] + "'." + "\nLet's try again, " + userName + "!");
                 return;
             }
         }

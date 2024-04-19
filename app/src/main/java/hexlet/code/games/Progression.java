@@ -1,44 +1,53 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.StringJoiner;
 import hexlet.code.Utils;
+import java.util.Arrays;
 
 public class Progression {
-    static final int FIRST_NUMBER = 55;
-    static final int PROGRESSION_LENGTH = 10;
-    static final int PROGRESSION_STEP = 5;
-    static final int DATA_ELEMENT3 = 3;
+    public static final int PROGRESSION_LENGTH_MIN = 5;
+    public static final int PROGRESSION_LENGTH_MAX = 10;
+    public static final int PROGRESSION_STEP_MIN = 2;
+    public static final int PROGRESSION_STEP_MAX = 10;
 
-    public static String[] doProgression(int[] data) {
-        String[] results = new String[2];
-        int lastNumber = data[0];
-        StringJoiner joiner = new StringJoiner(" ");
+    public static String[] generateProgression(int firstNumber, int length, int step) {
+        String[] generatedProgression = new String[length];
+        int lastNumber = firstNumber;
         int currentNumber;
-        for (var k = 0; k < data[2]; k++) {
-            currentNumber = lastNumber + data[DATA_ELEMENT3];
-            if (k == data[1]) {
-                results[1] = Integer.toString(currentNumber);
-                joiner.add("..");
-            } else {
-                joiner.add(Integer.toString(currentNumber));
-            }
+        for (var i = 0; i < length; i++) {
+            currentNumber = lastNumber + step;
+            generatedProgression[i] = Integer.toString(currentNumber);
             lastNumber = currentNumber;
         }
-        results[0] = joiner.toString();
-        return results;
+        return generatedProgression;
     }
 
-    public static String[][] generateRoundData() {
+    public static String[] generateRoundData() {
+        String[] generatedRound = new String[2];
+        int progressionFirstNumber = Utils.randomNumber();
+        int progressionLength = Utils.randomNumber(PROGRESSION_LENGTH_MIN, PROGRESSION_LENGTH_MAX);
+        int progressionStep = Utils.randomNumber(PROGRESSION_STEP_MIN, PROGRESSION_STEP_MAX);
+        String[] progression = generateProgression(progressionFirstNumber, progressionLength, progressionStep);
+        int hiddenNumber = Utils.randomNumber(progressionLength - 1);
+        generatedRound[1] = progression[hiddenNumber];
+        progression[hiddenNumber] = "..";
+        generatedRound[0] = Arrays.toString(progression).replace("[", "").replace("]",
+                "").replace(",", "");
+        return generatedRound;
+    }
+
+    public static String[][] fillRoundsArray() {
         String[][] rounds = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i != Engine.ROUNDS_COUNT; i++) {
-            rounds[i] = doProgression(Utils.randomData(FIRST_NUMBER, PROGRESSION_LENGTH, PROGRESSION_STEP));
+            String[] round = generateRoundData();
+            rounds[i][0] = round[0];
+            rounds[i][1] = round[1];
         }
         return rounds;
     }
 
     public static void startGame() {
         String exercise = "What number is missing in the progression?";
-        Engine.startEngine(exercise, generateRoundData());
+        Engine.startEngine(exercise, fillRoundsArray());
     }
 }

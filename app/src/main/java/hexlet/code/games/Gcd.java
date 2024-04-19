@@ -27,20 +27,28 @@ public class Gcd {
         return smallerNumber;
     }
 
-    public static String[][] generateRandomData() {
+    public static String[] generateRoundData() {
         int number1 = Utils.randomNumber();
         int number2 = Utils.randomNumber();
         int gcd = findGcd(number1, number2);
+        String[] generatedRound = new String[2];
+        generatedRound[0] = number1 + " " + number2;
+        generatedRound[1] = Integer.toString(gcd);
+        return generatedRound;
+    }
+
+    public static String[][] fillRoundsArray() {
         String[][] rounds = new String[Engine.ROUNDS_COUNT][2];
         for (var i = 0; i != Engine.ROUNDS_COUNT; i++) {
-            rounds[i][0] = number1 + " " + number2;
-            rounds[i][1] = Integer.toString(gcd);
+            String[] round = generateRoundData();
+            rounds[i][0] = round[0];
+            rounds[i][1] = round[1];
         }
         return rounds;
     }
 
     public static void startGame() {
         String exercise = "Find the greatest common divisor of given numbers.";
-        Engine.startEngine(exercise, generateRandomData());
+        Engine.startEngine(exercise, fillRoundsArray());
     }
 }
